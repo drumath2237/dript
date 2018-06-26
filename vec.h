@@ -43,9 +43,14 @@ double dot(Vec a, Vec b)
   return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
+double length(Vec v)
+{
+  return sqrt(dot(v,v));
+}
+
 Vec normalize(Vec v)
 {
-  return v/sqrt(dot(v,v));
+  return v/length(v);
 }
 
 
