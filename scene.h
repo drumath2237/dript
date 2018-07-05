@@ -10,9 +10,9 @@
 struct Scene {
   std::vector<Sphere> spheres;
 
-  std::optional<Hit> intersect(Ray& ray, double tmin, double tmax)
+  std::optional<Hit> intersect(const Ray& ray, double tmin, double tmax) const
   {
-    
+    std::optional<Hit> minh;
   }
 };
 
