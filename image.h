@@ -10,6 +10,9 @@
 
 using namespace std;
 
+/**
+ * PPM structure is about .ppm file.
+ */
 struct PPM
 {
   int width=600;
@@ -21,17 +24,24 @@ struct PPM
   PPM(){}
   PPM(int w, int h):width(w),height(h){}
   PPM(string f):file_name(f){}
+  PPM(int w, int h, string f):width(w),height(h),file_name(f){}
 };
 
+/**
+ * ppm_out() output .ppm file by scan data from PPM Object.
+*/
 void ppm_out(PPM* ppm)
 {
+  if(ppm->C.size() != ppm->width*ppm->height) return; // if vector size doesn't match ppm image size, return.
+
   ofstream ofs(ppm->file_name);
   ofs << "P3\n" << ppm->width << " " << ppm->height << "\n" << ppm->max_color << endl;
 
-  for(int i=0; i<ppm->width*ppm->height; i++){
-    ofs << ppm->C[i].x << " "
-        << ppm->C[i].y << " "
-        << ppm->C[i].z;
+
+  for(auto v : ppm->C){
+    ofs << v.x << " "
+        << v.y << " "
+        << v.z << endl;
   }
 }
 
