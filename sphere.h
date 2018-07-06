@@ -13,7 +13,7 @@ struct Sphere {
 
   std::optional<Hit> intersect(const Ray& ray, double tmin, double tmax) const 
   {
-
+    
   }
 };
 

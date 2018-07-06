@@ -6,7 +6,6 @@
 
 struct Hit
 {
-  Ray* ray;
   double t;
   Sphere* sphere;
 };
