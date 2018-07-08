@@ -3,4 +3,4 @@
 #include "image.h"
 #include "sphere.h"
 #include "scene.h"
-#include "hit.h"
+// #include "hit.h"

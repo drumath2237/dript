@@ -2,15 +2,18 @@
 #define H_SCENE
 
 #include <vector>
-#include <optional>
+// #include <optional>
 
 #include "sphere.h"
 #include "hit.h"
 
 struct Scene {
-  std::vector<Sphere> spheres;
+public:
+  std::vector<Sphere> spheres = { Sphere() };
 
-  /*std::optional<Hit>*/bool intersect(const Ray& ray, double tmin, double tmax) const
+  Scene(){}
+
+  /*std::optional<Hit>*/bool intersect(const Ray* ray, double tmin, double tmax) const
   {
     // std::optional<Hit> minh;
     bool minh;

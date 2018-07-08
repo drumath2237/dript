@@ -1,10 +1,10 @@
 #ifndef H_SPHERE
 #define H_SPHERE
 
-#include <optional>
+// #include <optional>
 
 #include "vec.h"
-#include "hit.h"
+// #include "hit.h"
 #include "ray.h"
 
 struct Sphere {
@@ -20,7 +20,10 @@ struct Sphere {
   //   if(det < 0){return {}}
 
   // }
-  bool intersect_test(const Ray &ray, double tmin, double tmax) const
+  Sphere():p(Vec()),r(1.0){}
+  Sphere(Vec v, double r):p(v),r(r){}
+  
+  bool intersect_test(const Ray *ray, double tmin, double tmax) const
   {
     Vec op = p - ray->o;
     double b = dot(ray->d, op);
