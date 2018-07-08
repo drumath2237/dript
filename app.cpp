@@ -14,20 +14,19 @@ int main(int argc, char const *argv[])
   PPM* ppm = new PPM(w, h);
   Scene scene;
   vector<Vec> I(w*h);
+  long int i;
 
-  for(int i=0;i<w*h;i++){
+  for(i=0;i<w*h;i++){
     const int x = i%x;
     const int y = h-i/w;
 
     Ray* ray;
     ray->o = Vec(x,y,0);
-    ray->d = (0,0,-1);
+    ray->d = Vec(0,0,-1);
 
-    // I[i] = scene.intersect(ray, 1e-4, 1e+10);
     I[i] = scene.intersect(ray, 1e-4, 1e+10) ? Vec(255,255,255):Vec(0,0,0);
+    // cout << scene.intersect(ray, 1e-4, 1e+10) << endl;
   }
-
-  cout << (int)(I.size()) << endl;
 
   ppm->C = I;
   ppm_out(ppm);
