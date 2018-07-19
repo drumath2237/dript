@@ -43,10 +43,10 @@ double dot(Vec a, Vec b)
   return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
-Vec cross(Vec a, Vec b)
-{
-  // TODO: cross operation development!
-}
+// Vec cross(Vec a, Vec b)
+// {
+//   // TODO: cross operation development!
+// }
 
 double length(Vec v)
 {

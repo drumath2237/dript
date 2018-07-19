@@ -11,6 +11,8 @@ struct Sphere {
   Vec p;
   double r;
 
+  Sphere(Vec p, double r):p(p),r(r){}
+
   // std::optional<Hit> intersect(const Ray& ray, double tmin, double tmax) const 
   // {
   //   Vec op = p - ray->o;
@@ -22,9 +24,9 @@ struct Sphere {
   // }
   bool intersect_test(const Ray &ray, double tmin, double tmax) const
   {
-    Vec op = p - ray->o;
-    double b = dot(ray->d, op);
-    double det = b * b - 4 * (dot(op, op) - r * r); // check this
+    Vec op = p - ray.o;
+    double b = dot(ray.d, op);
+    double det = b * b - dot(op, op) + r * r; // check this
 
     if (det < 0)
     {
