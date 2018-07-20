@@ -30,15 +30,14 @@ struct PPM
 /**
  * ppm_out() output .ppm file by scan data from PPM Object.
 */
-void ppm_out(PPM* ppm)
+void ppm_out(PPM ppm)
 {
-  if(ppm->C.size() != ppm->width*ppm->height) return; // if vector size doesn't match ppm image size, return.
+  if(ppm.C.size() != ppm.width*ppm.height) return; // if vector size doesn't match ppm image size, return.
 
-  ofstream ofs(ppm->file_name);
-  ofs << "P3\n" << ppm->width << " " << ppm->height << "\n" << ppm->max_color << endl;
+  ofstream ofs(ppm.file_name);
+  ofs << "P3\n" << ppm.width << " " << ppm.height << "\n" << ppm.max_color << endl;
 
-
-  for(auto v : ppm->C){
+  for(auto v : ppm.C){
     ofs << v.x << " "
         << v.y << " "
         << v.z << endl;

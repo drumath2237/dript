@@ -34,18 +34,13 @@ Vec operator*(const Vec b, const double d)
 }
 Vec operator/(const Vec v, const double d)
 {
-  if(d<0){return Vec();}
+  if(d==0){return Vec();} // zero devision
   return Vec(v.x/d, v.y/d, v.z/d);
 }
 
 double dot(Vec a, Vec b)
 {
   return a.x*b.x + a.y*b.y + a.z*b.z;
-}
-
-Vec cross(Vec a, Vec b)
-{
-  // TODO: cross operation development!
 }
 
 double length(Vec v)

@@ -7,7 +7,7 @@
 struct Hit
 {
   double t;
-  Sphere* sphere;
+  Sphere sphere;
 };
 
 #endif // !H_HIT
