@@ -1,6 +1,6 @@
 #include "vec.h"
 #include "ray.h"
 #include "image.h"
+#include "hit.h"
 #include "sphere.h"
 #include "scene.h"
-#include "hit.h"

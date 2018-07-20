@@ -25,6 +25,8 @@ struct PPM
   PPM(int w, int h):width(w),height(h){}
   PPM(string f):file_name(f){}
   PPM(int w, int h, string f):width(w),height(h),file_name(f){}
+
+  int size(){return width*height;}
 };
 
 /**
