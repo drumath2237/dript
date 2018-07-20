@@ -15,7 +15,7 @@ using namespace std;
  */
 struct PPM
 {
-  int width=600;
+  int width=640;
   int height=400;
   int max_color=255;
   string file_name = "result.ppm";
