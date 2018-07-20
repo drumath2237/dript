@@ -15,7 +15,7 @@ struct Sphere {
   {
     Vec op = p - ray.o;
     double b = dot(ray.d, op);
-    double det = b * b - dot(op, op) - r * r; // check this
+    double det = b * b - dot(op, op) + r * r; // check this
 
     if (det < 0)
     {
