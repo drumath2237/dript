@@ -9,20 +9,23 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
   Scene scene;
-  Sphere s = Sphere(Vec(), 100);
+  Sphere s = Sphere(Vec(), 1);
   PPM ppm;
   // color vector
-  vector<Vec> I(400*640);
+  vector<Vec> I(ppm.width*ppm.height);
 
-  for(int i=0; i<400*640; i++){
-    int x = i % 640;
-    int y = i / 640;
+  for(int i=0; i<ppm.width*ppm.height; i++){
+    int x = i % ppm.width;
+    int y = i / ppm.width;
+    x/=ppm.width;
+    y/=ppm.height;
     Ray ray;
-    ray.o = Vec(x,y,0);
+    ray.o = Vec(x,y,-5);
     ray.d = Vec(0,0,1);
 
     auto res = scene.intersect(ray, 1e-10, 1e+10);
-    I[i] = res ? Vec(255, 255, 255) : Vec(0,0,0);
+    // I[i] = res ? Vec(255, 255, 255) : Vec(0,0,0);
+    cout << res << endl;
 
     // cout << i << ":" << res << endl;
   }
