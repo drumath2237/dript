@@ -15,8 +15,6 @@ int main(int argc, char const *argv[])
   vector<Vec> v(ppm.size());
   for(int i=0; i<ppm.size(); i++)
     v[i] = Vec(255, 0 ,255);
-  for(int i=0; i<ppm.size(); i++)
-    ppm.C.push_back(v[i]);
-  ppm_out(ppm);
+  ppm_out(ppm,v);
   return 0;
 }
