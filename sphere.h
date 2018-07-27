@@ -1,8 +1,6 @@
 #ifndef H_SPHERE
 #define H_SPHERE
 
-#include <optional>
-
 #include "vec.h"
 #include "hit.h"
 #include "ray.h"
