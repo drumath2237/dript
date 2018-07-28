@@ -21,8 +21,6 @@ struct Sphere {
     }else{
       return true;
     }
-
-    return false;
   }
 };
 
