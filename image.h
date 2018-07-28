@@ -46,4 +46,19 @@ void ppm_out(PPM ppm)
   }
 }
 
+bool ppm_out(PPM ppm, vector<Vec> C)
+{
+  if(ppm.size() != C.size()) return false; // if vector size doesn't match ppm image size, return.
+
+  ofstream ofs(ppm.file_name);
+  ofs << "P3\n" << ppm.width << " " << ppm.height << "\n" << ppm.max_color << endl;
+
+  for(auto v : C){
+    ofs << v.x << " "
+        << v.y << " "
+        << v.z << endl;
+  }
+  return true;
+}
+
 #endif
