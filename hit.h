@@ -1,8 +1,6 @@
 #ifndef H_HIT
 #define H_HIT
 
-#include <iostream>
-#include <vector>
 #include <algorithm>
 
 #include "ray.h"

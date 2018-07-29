@@ -11,39 +11,31 @@ struct Sphere {
   Vec p;
   double r;
 
-  bool isIntersect(const Ray ray, double tmin, double tmax) const
-  {
-    Vec op = p - ray.o;
-    double b = dot(ray.d, op);
-    double det = b * b - dot(op, op) + r * r; // check this
-
-    if (det < 0)
-    {
-      return false;
-    }else{
-      return true;
-    }
-  }
-
   optional<Hit> intersect(const Ray ray, double tmin, double tmax)
   {
-    if(!isIntersect(ray, tmin, tmax)){ return {}; }
-
     Vec op = p - ray.o;
     double b = dot(ray.d, op);
     double det = b * b - dot(op, op) + r * r; // check this
+
+    if(det < 0) return std::nullopt;
 
     double t1 = b-sqrt(det);
     if(tmin<t1 && t1<tmax){
       Hit hit;
       hit.t = t1;
       hit.sphere = this;
+      return hit;
     }
 
     double t2 = b+sqrt(det);
-    if(tmin<t1 && t1<tmax){ return Hit{t1, Vec(), Vec(), this}; }
+    if(tmin<t1 && t1<tmax){
+      Hit hit;
+      hit.t = t2;
+      hit.sphere = this;
+      return hit;
+    }
 
-    return {};
+    return std::nullopt;
   }
 };
 
