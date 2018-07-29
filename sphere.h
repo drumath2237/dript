@@ -41,7 +41,7 @@ struct Sphere {
     }
 
     double t2 = b+sqrt(det);
-    if(tmin<t1 && t1<tmax){ return Hit{t1, this}; }
+    if(tmin<t1 && t1<tmax){ return Hit{t1, Vec(), Vec(), this}; }
 
     return {};
   }

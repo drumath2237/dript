@@ -19,6 +19,14 @@ struct Scene {
       minh = h;
       tmax = minh->t;
     }
+
+    if(minh)
+    {
+      auto *s = minh->sphere;
+      minh->p = ray.o + ray.d * minh->t;
+      minh->n = (minh->p - s->p)/s->r;
+    }
+    
     return minh;
   }
 };

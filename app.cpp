@@ -28,7 +28,15 @@ int main(int argc, char const *argv[])
     ray.o = Vec(2. * double(x) / w - 1., 2. * double(y) / h - 1., 5.);
     ray.d = Vec(0, 0, -1);
 
-    v[i] = scene.intersect(ray, 0.0, 1e+10) ? Vec(255, 0, 255) : Vec(0, 0, 0);
+    if(auto h = scene.intersect(ray, 0, 1e+10)){
+      v[i] = Vec(
+        tonemap(h->n.x),
+        tonemap(h->n.y),
+        tonemap(h->n.z)        
+      );
+    }else{
+      v[i] = Vec();
+    }
   }
 
   ppm_out(ppm, v);
