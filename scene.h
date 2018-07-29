@@ -2,6 +2,7 @@
 #define H_SCENE
 
 #include <vector>
+#include <optional>
 
 #include "sphere.h"
 #include "hit.h"
@@ -9,14 +10,16 @@
 struct Scene {
   std::vector<Sphere> spheres;
 
-  bool intersect(const Ray ray, double tmin, double tmax) const
+  optional<Hit> intersect(const Ray ray, double tmin, double tmax) const
   {
+    optional<Hit> minh;
     for(auto sphere : spheres){
-      const auto h = sphere.intersect_test(ray, tmin, tmax);
+      const auto h = sphere.intersect(ray, tmin, tmax);
       if(!h){continue;}
-      else {return true;}
+      minh = h;
+      tmax = minh->t;
     }
-    return false;
+    return minh;
   }
 };
 
