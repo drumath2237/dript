@@ -15,10 +15,11 @@ int main(int argc, char const *argv[])
   PPM ppm = PPM(w, h);
   vector<Vec> v(ppm.size());
 
-  Scene scene;
   Sphere sphere;
   sphere.p = Vec();
   sphere.r = 1.;
+  
+  Scene scene;
   scene.spheres.push_back(sphere);
 
   Renderer renderer(ppm, scene);
