@@ -17,9 +17,22 @@ int main(int argc, char const *argv[])
 
   Scene scene;
   Sphere sphere;
-  sphere.p = Vec();
-  sphere.r = 1.;
+  sphere.p = Vec(.5, 0, 0);
+  sphere.r = .5;
   scene.spheres.push_back(sphere);
+
+  sphere.p = Vec(-.5, 0, 0);
+  scene.spheres.push_back(sphere);
+
+  sphere.p = Vec(0, -.5, 0);
+  scene.spheres.push_back(sphere);
+
+  sphere.p = Vec(0, .5, 0);
+  scene.spheres.push_back(sphere);
+
+  // for(auto s : scene.spheres){
+  //   cout << s.p.x << endl;
+  // }
 
   Renderer renderer(ppm, scene);
   renderer.render();  

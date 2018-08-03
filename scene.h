@@ -7,6 +7,9 @@
 #include "sphere.h"
 #include "hit.h"
 
+#include <iostream>
+#include <cstdio>
+
 struct Scene {
   std::vector<Sphere> spheres;
 
@@ -22,7 +25,9 @@ struct Scene {
 
     if(minh)
     {
-      auto *s = minh->sphere;
+      const auto *s = minh->sphere;
+      // std::cout << s->p.x << std::endl;
+      printf("(%lf, %lf)\n", s->p.x, s->p.y);
       minh->p = ray.o + ray.d * minh->t;
       minh->n = (minh->p - s->p)/s->r;
     }

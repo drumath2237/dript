@@ -28,7 +28,7 @@ struct Sphere {
     }
 
     double t2 = b+sqrt(det);
-    if(tmin<t1 && t1<tmax){
+    if(tmin<t2 && t2<tmax){
       Hit hit;
       hit.t = t2;
       hit.sphere = this;
