@@ -19,6 +19,7 @@ struct Scene {
     for(auto sphere : spheres){
       const auto h = sphere.intersect(ray, tmin, tmax);
       if(!h){continue;}
+      // std::cout << h->sphere->p.x << std::endl;
       minh = h;
       tmax = minh->t;
     }
@@ -26,8 +27,9 @@ struct Scene {
     if(minh)
     {
       const auto *s = minh->sphere;
-      // std::cout << s->p.x << std::endl;
+
       printf("(%lf, %lf)\n", s->p.x, s->p.y);
+      
       minh->p = ray.o + ray.d * minh->t;
       minh->n = (minh->p - s->p)/s->r;
     }

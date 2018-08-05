@@ -2,6 +2,7 @@
 #define H_SPHERE
 
 #include <optional>
+#include <iostream>
 
 #include "vec.h"
 #include "ray.h"
